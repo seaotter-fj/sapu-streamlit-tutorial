@@ -2,7 +2,8 @@ import streamlit as st
 from PIL import Image
 import datetime
 from typing import List
-import pandas as pd 
+import pandas as pd
+import matplotlib.pyplot as plt
 
 st.title('さぷーアプリ')
 st.caption('This is a test app in the sapu tutorial.')
@@ -57,4 +58,21 @@ with st.form(key='profile_form'):
     if submit_btn:
         st.text(f'ようこそ！{age_category}, {name}さん🎵 {address}に送っといたよ。')
         st.text(f'趣味: {", ".join(hobby)}')
+
+# ------------------------------------------------------------------------------
+# データ分析関連
+# ------------------------------------------------------------------------------
+with open(r'./data.csv') as csv_file:
+    df = pd.read_csv(csv_file)
+    df.columns = ['one', 'two', 'three']
+
+    
+st.line_chart(df)
+st.bar_chart(df['one'])
+
+# matplotlib
+fig, ax = plt.subplots()
+ax.plot(df.index, df['two'])
+ax.set_title('This is a graph of two')
+st.pyplot(fig)
 
