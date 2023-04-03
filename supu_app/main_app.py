@@ -10,5 +10,6 @@ st.caption('This is a test app in the sapu tutorial.')
 
 # image = Image.open('./data/download.jpg')
 # image = Image.open('../supu_app/data/download.jpg')
-image = Image.open(r'./sticker_3.png')
-st.image(image, width=200)
+st.image(
+    "https://s3-us-west-2.amazonaws.com/uw-s3-cdn/wp-content/uploads/sites/6/2017/11/04133712/waterfall.jpg", 
+    width=400)
